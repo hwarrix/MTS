@@ -1,0 +1,85 @@
+{
+  "expo": {
+    "name": "MediCare",
+    "slug": "medicare-hospital-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "medicare",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A1628"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.medicare.hospitalapp",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Upload your insurance card or profile photo.",
+        "NSPhotoLibraryUsageDescription": "Select photos for insurance cards or profile.",
+        "NSFaceIDUsageDescription": "Use Face ID for quick and secure login.",
+        "NSLocalNetworkUsageDescription": "Required for development builds."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A1628"
+      },
+      "package": "com.medicare.hospitalapp",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.VIBRATE",
+        "android.permission.INTERNET"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Use Face ID for quick and secure login."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#0A1628",
+          "defaultChannel": "default"
+        }
+      ],
+      "expo-secure-store",
+      "expo-sqlite",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow MediCare to access your photos for insurance card uploads.",
+          "cameraPermission": "Allow MediCare to use your camera for insurance card photos."
+        }
+      ],
+      "@stripe/stripe-react-native",
+      {
+        "merchantIdentifier": "com.hospitalapp.medicare",
+        "enableGooglePay": false
+      }
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
